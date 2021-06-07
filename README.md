@@ -1,34 +1,44 @@
-# front
+# Back
+## lunch terminal
+### Install dependencies
+```
+pip install --no-cache-dir -r requirements.txt
+```
+### lunch back-end
+```
+uvicorn main:app --reload
+```
 
+# front
+## lunch new terminal
 ## Project setup
 ```
 yarn install
 ```
-
+### Lints and fixes files
+```
+./node_modules/.bin/eslint --fix ./src
+```
 ### Compiles and hot-reloads for development
 ```
 yarn serve
 ```
-
 ### Compiles and minifies for production
 ```
 yarn build
 ```
 
-### Run your unit tests
+#Nginx
+## lunch new terminal
+### Build Docker
 ```
-yarn test:unit
+sudo docker build --tag md-wiki:2021 .
 ```
-
-### Run your end-to-end tests
+### Run Docker Container
 ```
-yarn test:e2e
+sudo docker run --name vuefastapi -ti -p 8080:8080 md-wiki:2021
 ```
-
-### Lints and fixes files
+### 
 ```
-yarn lint
+sudo docker exec -t vuefastapi bash -c uvicorn main:app --reload
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
